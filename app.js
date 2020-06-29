@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cards = require('./routes/cards');
-const users = require('./routes/users');
+const cardsRoute = require('./routes/cards');
+const usersRoute = require('./routes/users');
 
 const { PORT = 3000 } = process.env;
 
@@ -34,7 +34,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useFindAndModify: false,
 });
 
-app.use('/cards', cards);
-app.use('/users', users);
+app.use('/cards', cardsRoute);
+app.use('/users', usersRoute);
 app.use(noUrl);
 app.listen(PORT);

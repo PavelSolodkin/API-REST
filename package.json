@@ -1,7 +1,7 @@
 {
   "name": "sprint13",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mesto (API.REST+Mongo.DB)",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",

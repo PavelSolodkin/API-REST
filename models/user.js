@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const url = /^(http:\/\/|https:\/\/|ftp:\/\/|ftps:\/\/|www\.)([0-9]|[a-z]|[A-Z]|[.*]|[-]|[_])+(\.)+([a-z]|.*)/i;
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -16,10 +18,7 @@ const userSchema = new mongoose.Schema({
   avatar: {
     type: String,
     required: true,
-    validate: {
-      validator: (v) => v.match(/^https?:\/\/(www\.)?[\w./-]{1,}/),
-      message: (props) => `${props.value} Неверный URL!`,
-    },
+    match: url,
   },
 });
 
